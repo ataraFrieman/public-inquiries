@@ -1,0 +1,70 @@
+<div class="form-container">
+    <mat-card>
+        <mat-card-header>
+            <app-section-header titleKey="FORM.MAIN_TITLE" descriptionKey="FORM.MAIN_DESCRIPTION" icon="description">
+            </app-section-header>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <mat-stepper #stepper [linear]="isLinear" [orientation]="(stepperOrientation$ | async)!"
+                    class="form-stepper">
+                    <mat-step [stepControl]="form.get('inquiryType')!">
+                        <ng-template matStepLabel>{{ 'STEPS.TYPE' | translate }}</ng-template>
+                        <app-inquiry-type formControlName="inquiryType"/>
+                        <div class="step-actions">
+                            <button mat-flat-button color="primary" type="button" (click)="canProceed(stepper)">
+                                {{ 'BUTTONS.NEXT' | translate }}
+                            </button>
+                        </div>
+                    </mat-step>
+
+                    <mat-step [stepControl]="form.get('personalInfo')!">
+                        <ng-template matStepLabel>{{ 'STEPS.PERSONAL_INFO' | translate }}</ng-template>
+                        <div formGroupName="personalInfo">
+                            <app-personal-info/>
+                        </div>
+                        <div class="step-actions">
+                            <button mat-stroked-button type="button" (click)="stepper.previous()">
+                                {{ 'BUTTONS.BACK' | translate }}
+                            </button>
+                            <button mat-flat-button color="primary" type="button" (click)="canProceed(stepper)">
+                                {{ 'BUTTONS.NEXT' | translate }}
+                            </button>
+                        </div>
+                    </mat-step>
+
+                    <mat-step [stepControl]="form.get('complaintDetails')!">
+                        <ng-template matStepLabel>{{ 'STEPS.COMPLAINT_DETAILS' | translate }}</ng-template>
+                        <div formGroupName="complaintDetails">
+                            <app-complaint-details/>
+                        </div>
+                        <div class="step-actions">
+                            <button mat-stroked-button type="button" (click)="stepper.previous()">
+                                {{ 'BUTTONS.BACK' | translate }}
+                            </button>
+                            <button mat-flat-button color="primary" type="button" (click)="canProceed(stepper)">
+                                {{ 'BUTTONS.NEXT' | translate }}
+                            </button>
+                        </div>
+                    </mat-step>
+
+                    <mat-step>
+                        <ng-template matStepLabel>{{ 'STEPS.ATTACHMENTS' | translate }}</ng-template>
+                        <div formGroupName="attachments">
+                            <app-attachments/>
+                        </div>
+                        <div class="step-actions">
+                            <button mat-stroked-button type="button" (click)="stepper.previous()">
+                                {{ 'BUTTONS.BACK' | translate }}
+                            </button>
+                            <button mat-flat-button color="primary" type="submit" [disabled]="!canSubmit()">
+                                {{ 'BUTTONS.SUBMIT' | translate }}
+                            </button>
+                        </div>
+                    </mat-step>
+                </mat-stepper>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

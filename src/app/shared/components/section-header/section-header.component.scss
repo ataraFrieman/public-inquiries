@@ -1,0 +1,42 @@
+.section-header {
+    margin-bottom: 2rem;
+  
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .header-icon {
+      color: #666;
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+    }
+  
+    .header-text {
+      flex: 1;
+  
+      h2 {
+        margin: 0;
+        color: #333;
+        font-weight: 500;
+      }
+  
+      p {
+        margin: 0.5rem 0 0;
+        color: #666;
+      }
+    }
+  
+    mat-divider {
+      border-top-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+  
+  [dir="rtl"] {
+    .header-content {
+      text-align: right;
+    }
+  }

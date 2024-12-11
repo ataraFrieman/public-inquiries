@@ -1,0 +1,4 @@
+<div class="error-container" [class.warning]="type === 'warning'">
+    <mat-icon>{{ type === 'error' ? 'error' : 'warning' }}</mat-icon>
+    <span class="message">{{ messageKey | translate:params }}</span>
+</div>

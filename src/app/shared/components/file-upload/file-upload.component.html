@@ -1,0 +1,30 @@
+<div class="file-upload-container">
+  <div class="upload-area">
+    <input
+      type="file"
+      #fileInput
+      [accept]="acceptedTypes"
+      [multiple]="multiple"
+      [required]="required"
+      (change)="onFilesSelected($event)"
+      class="file-input"
+    >
+    
+    <div class="upload-content" (click)="fileInput.click()">
+      <mat-icon>cloud_upload</mat-icon>
+      <span class="upload-text">{{ labelKey | translate }}</span>
+      <span class="upload-hint" *ngIf="acceptedTypes !== '*'">
+        {{ 'FILE_UPLOAD.HINT' | translate:{ types: acceptedTypes, size: maxSize } }}
+      </span>
+      <span class="upload-hint" *ngIf="acceptedTypes === '*'">
+        {{ 'FILE_UPLOAD.HINT_ALL' | translate:{ size: maxSize } }}
+      </span>
+    </div>
+  </div>
+
+  <mat-error *ngIf="hasErrors">
+    <div *ngFor="let error of getFileErrors()">
+      {{ 'ERRORS.FILE_UPLOAD.' + error.code | translate:error.params }}
+    </div>
+  </mat-error>
+</div>

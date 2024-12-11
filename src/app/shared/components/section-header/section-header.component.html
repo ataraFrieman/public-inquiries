@@ -1,0 +1,10 @@
+<div class="section-header" [class]="class">
+    <div class="header-content">
+      <mat-icon *ngIf="icon" class="header-icon">{{icon}}</mat-icon>
+      <div class="header-text">
+        <h2 class="mat-h2">{{ titleKey | translate }}</h2>
+        <p *ngIf="descriptionKey" class="mat-body-1">{{ descriptionKey | translate }}</p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  </div>

@@ -1,0 +1,21 @@
+<div class="complaint-details-container">
+    <app-section-header titleKey="COMPLAINT_DETAILS.TITLE" descriptionKey="COMPLAINT_DETAILS.TITLE_DESCRIPTION"
+        icon="description" />
+
+    <div class="form-fields" [formGroup]="form">
+
+        <app-generic-input [control]="getControl('subject')" fieldKey="COMPLAINT_DETAILS.SUBJECT"
+            [validationConfig]="validations['required']" prefixIcon="subject"></app-generic-input>
+        <app-generic-textarea [control]="getControl('description')" fieldKey="COMPLAINT_DETAILS.DESCRIPTION"
+            [validationConfig]="validations['description']" [minRows]="4" [maxRows]="8" [maxLength]="1000" />
+
+        <div class="form-row">
+            <app-generic-input [control]="getControl('caseNumber')" fieldKey="COMPLAINT_DETAILS.CASE_NUMBER"
+                [validationConfig]="validations['caseNumber']" prefixIcon="numbers" />
+
+            <app-generic-input [control]="getControl('courtName')" fieldKey="COMPLAINT_DETAILS.COURT_NAME"
+                [validationConfig]="validations['required']" prefixIcon="account_balance" />
+        </div>
+    </div>
+
+</div>

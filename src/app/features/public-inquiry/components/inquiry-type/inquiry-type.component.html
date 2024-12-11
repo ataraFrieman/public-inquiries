@@ -1,0 +1,26 @@
+<div class="inquiry-type-container">
+  <app-section-header titleKey="INQUIRY_TYPE.TITLE" descriptionKey="INQUIRY_TYPE.DESCRIPTION" icon="help_outline"/>
+
+  <div class="type-cards">
+    <mat-card *ngFor="let type of types" [class.selected]="control.value === type.value" [class.disabled]="disabled"
+      (click)="selectType(type.value)" class="type-card">
+      <mat-card-content>
+        <div class="card-header">
+          <mat-icon [color]="control.value === type.value ? 'primary' : ''">
+            {{ type.icon }}
+          </mat-icon>
+          <mat-icon *ngIf="control.value === type.value" class="selected-icon" color="primary">
+            check_circle
+          </mat-icon>
+        </div>
+
+        <h3 class="type-title">{{ type.titleKey | translate }}</h3>
+        <p class="type-description">{{ type.descriptionKey | translate }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-error *ngIf="control.touched && control.invalid">
+    {{ control.errors?.['required'] ? (validationConfig.validations[0].message | translate) : '' }}
+  </mat-error>
+</div>

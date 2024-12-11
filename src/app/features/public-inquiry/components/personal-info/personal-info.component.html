@@ -1,0 +1,22 @@
+<div class="personal-info-container">
+    <app-section-header titleKey="PERSONAL_INFO.TITLE" descriptionKey="PERSONAL_INFO.DESCRIPTION" icon="person"/>
+
+    <div class="form-fields" [formGroup]="form">
+        <div class="form-row">
+            <app-generic-input [control]="getControl('firstName')" fieldKey="PERSONAL_INFO.FIRST_NAME"
+                [validationConfig]="validations['required']" prefixIcon="person_outline" />
+
+            <app-generic-input [control]="getControl('lastName')" fieldKey="PERSONAL_INFO.LAST_NAME"
+                [validationConfig]="validations['required']" prefixIcon="person_outline" />
+        </div>
+
+        <div class="form-row">
+            <app-generic-input [control]="getControl('idNumber')" fieldKey="PERSONAL_INFO.ID_NUMBER" type="text"
+                [maxLength]="9" [validationConfig]="validations['idNumber']" prefixIcon="badge" />
+
+
+            <app-generic-input [control]="getControl('address')" fieldKey="PERSONAL_INFO.ADDRESS"
+                [validationConfig]="validations['required']" prefixIcon="home" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="attachments-container">
+    <app-section-header titleKey="ATTACHMENTS.TITLE" descriptionKey="ATTACHMENTS.DESCRIPTION" icon="attachment"/>
+
+    <div class="attachments-fields">
+        <ng-container *ngFor="let fileType of currentFileTypes">
+            <div class="file-upload-section">
+                <app-file-upload [control]="getControl(fileType.type)" [labelKey]="fileType.labelKey"
+                    [maxSize]="fileType.maxSize" [acceptedTypes]="fileType.acceptedTypes" [required]="fileType.required"
+                    [multiple]="fileType.type === 'additionalDocs' || fileType.type === 'evidence'"
+                    (fileSelected)="onFileSelected(fileType, $event)"></app-file-upload>
+
+                <div class="files-list" *ngIf="getFiles(fileType).length > 0">
+                    <div class="file-item" *ngFor="let file of getFiles(fileType); let i = index">
+                        <div class="file-info">
+                            <mat-icon>{{ getFileIcon(file.type) }}</mat-icon>
+                            <span class="file-name">{{ file.name }}</span>
+                            <span class="file-size">{{ getFileSize(file.size) }}</span>
+                        </div>
+                        <button mat-icon-button color="warn" (click)="removeFile(fileType, i)"
+                            [attr.aria-label]="'BUTTONS.REMOVE_FILE' | translate">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <mat-card class="warning-card" *ngIf="!inquiryType">
+            <mat-card-content>
+                <mat-icon color="warn">warning</mat-icon>
+                <span>{{ 'ATTACHMENTS.SELECT_TYPE_FIRST' | translate }}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

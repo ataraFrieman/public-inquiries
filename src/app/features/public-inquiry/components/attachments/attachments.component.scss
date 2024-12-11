@@ -1,0 +1,59 @@
+.attachments-container {
+	padding: 1rem;
+
+	.attachments-fields {
+		margin-top: 2rem;
+
+		.file-upload-section {
+			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			.files-list {
+				margin-top: 1rem;
+
+				.file-item {
+					display: flex;
+					align-items: center;
+					padding: 0.5rem;
+					background-color: #f5f5f5;
+					border-radius: 4px;
+					margin-bottom: 0.5rem;
+
+					.file-name {
+						flex: 1;
+						margin-right: 1rem;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+
+					.file-size {
+						margin-right: 1rem;
+						color: rgba(0, 0, 0, 0.6);
+						font-size: 0.9rem;
+					}
+				}
+			}
+		}
+	}
+
+	.warning-card {
+		background-color: #fff3e0;
+
+		mat-card-content {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: #e65100;
+
+			mat-icon {
+				font-size: 24px;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+}

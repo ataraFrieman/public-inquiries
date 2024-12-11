@@ -1,0 +1,85 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .flex-row-mobile {
+    flex-direction: row;
+  }
+
+  .flex-col-mobile {
+    flex-direction: column;
+  }
+}
+
+[dir="rtl"] {
+  .ml-auto {
+    margin-left: unset;
+    margin-right: auto;
+  }
+
+  .mr-auto {
+    margin-right: unset;
+    margin-left: auto;
+  }
+}

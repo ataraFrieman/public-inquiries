@@ -1,0 +1,34 @@
+<mat-form-field appearance="outline" class="w-100" [dir]="dir">
+    <mat-label>
+        {{ label}}
+    </mat-label>
+
+    <span matPrefix *ngIf="prefix || prefixIcon">
+        <mat-icon *ngIf="prefixIcon">{{ prefixIcon }}</mat-icon>
+        <span *ngIf="prefix">{{ prefix }}</span>
+    </span>
+
+    <input matInput [type]="type" [formControl]="control" [placeholder]="placeholder"
+        [attr.maxlength]="maxLength" [autocomplete]="autocomplete || 'off'" [attr.aria-label]="label">
+
+    <span matSuffix *ngIf="suffix || suffixIcon">
+        <mat-icon *ngIf="suffixIcon">{{ suffixIcon }}</mat-icon>
+        <span *ngIf="suffix">{{ suffix }}</span>
+    </span>
+
+    <button mat-icon-button matSuffix *ngIf="showPasswordToggle" (click)="togglePasswordVisibility()"
+        [attr.aria-label]="'COMMON.TOGGLE_PASSWORD_VISIBILITY' | translate" type="button">
+        <mat-icon>{{ type === 'password' ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+
+    <button mat-icon-button matSuffix *ngIf="showClearButton" (click)="clearInput()"
+        [attr.aria-label]="'COMMON.CLEAR' | translate" type="button">
+        <mat-icon>close</mat-icon>
+    </button>
+
+    <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
+
+    <mat-error *ngIf="control.touched && control.invalid">
+        {{ errorMessage | translate }}
+    </mat-error>
+</mat-form-field>

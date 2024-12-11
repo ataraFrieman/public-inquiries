@@ -1,0 +1,19 @@
+<mat-form-field appearance="outline" [dir]="dir">
+    <mat-label>
+        {{ label}}
+    </mat-label>
+
+    <textarea matInput [formControl]="control" [placeholder]="placeholder " [attr.maxlength]="maxLength"
+        cdkTextareaAutosize [cdkAutosizeMinRows]="minRows" [cdkAutosizeMaxRows]="maxRows">
+    </textarea>
+
+    <mat-hint align="start" *ngIf="hint">{{ hint }}</mat-hint>
+
+    <mat-hint align="end" *ngIf="maxLength !== null">
+        {{ charactersLeft }} {{ 'COMMON.CHARACTERS_LEFT' | translate }}
+    </mat-hint>
+
+    <mat-error *ngIf="control.touched && control.invalid">
+        {{ errorMessage | translate }}
+    </mat-error>
+</mat-form-field>
