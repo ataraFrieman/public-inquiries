@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>',
-  styleUrls: ['./app.component.scss']  // זה יוצר את הדרישה לקובץ SCSS
+  styleUrls: ['./app.component.scss'] 
 })
 export class AppComponent {
   constructor(private translate: TranslateService) {

@@ -1,6 +1,5 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
-// src/app/core/models/validation.model.ts
 export interface ValidationError {
     type: string;
     message: string;

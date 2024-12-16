@@ -1,4 +1,3 @@
-// src/app/core/services/validation.service.ts
 import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
