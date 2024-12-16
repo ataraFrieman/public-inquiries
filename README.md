@@ -77,8 +77,6 @@ src/
 2. **Personal Information**
    - Validated input fields
    - Israeli ID validation
-   - Phone number validation
-   - Email validation
 
 3. **Complaint Details**
    - Dynamic fields based on inquiry type
