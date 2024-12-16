@@ -50,21 +50,22 @@ ng serve
 src/
 ├── app/
 │   ├── core/                 # Core functionality
-│   │   ├── guards/
-│   │   ├── models/
-│   │   └── services/
-│   ├── features/            # Feature modules
-│   │   └── public-inquiry/
-│   │       ├── components/
-│   │       └── services/
-│   └── shared/             # Shared components
-│       ├── components/
-│       ├── directives/
-│       └── pipes/
+│   │   ├── guards/           # Route guards for managing access to routes
+│   │   ├── interceptors/     # HTTP interceptors for handling global HTTP logic
+│   │   ├── models/           # Global data models and interfaces
+│   │   └── services/         # Shared services like validation, file upload, etc.
+│   ├── features/             # Feature-specific modules
+│   │   └── public-inquiry/   # Public inquiry feature
+│   │       ├── components/   # Components specific to the feature
+│   │       └── services/     # Feature-specific services
+│   └── shared/               # Shared reusable elements
+│       ├── components/       # Reusable components across the app
+│       ├── directives/       # Reusable directives
+│       └── pipes/            # Reusable pipes
 ├── assets/
-│   ├── i18n/              # Translation files
-│   └── styles/
-└── environments/
+│   ├── i18n/                 # Translation files for multi-language support
+│   └── styles/               # Global styles
+└── environments/             # Environment-specific configuration files
 ```
 
 ## 🎯 Features in Detail
